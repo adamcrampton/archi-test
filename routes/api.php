@@ -11,6 +11,8 @@ Route::group(['prefix' => 'properties', 'as' => 'property.'], function() {
     Route::delete('/{property}', 'App\Http\Controllers\Api\Properties\PropertyController@destroy')->name('destroy');
 
     // Property analytics.
-    Route::get('/{property}/analytics/{filter?}', 'App\Http\Controllers\Api\Properties\AnalyticController@show')->name('analytics.show');
-    Route::post('/{property}/analytics', 'App\Http\Controllers\Api\Properties\AnalyticController@store')->name('analytics.store');
+    Route::get('/{property}/analytics', 'App\Http\Controllers\Api\Properties\AnalyticController@show')->name('analytics.show');
+
+    // Analytics.
+    Route::post('/analytics', 'App\Http\Controllers\Api\Properties\AnalyticController@store')->name('analytics.store');
 });
