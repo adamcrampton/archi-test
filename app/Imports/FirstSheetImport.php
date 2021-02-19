@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Properties\Property;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 
@@ -24,7 +25,7 @@ class FirstSheetImport implements ToModel, WithStartRow
     public function model(array $row)
     {
         return new Property([
-            'guid' => $row[0],
+            'guid' => Str::uuid(),
             'suburb' => $row[1],
             'state' => $row[2],
             'country' => $row[3]
