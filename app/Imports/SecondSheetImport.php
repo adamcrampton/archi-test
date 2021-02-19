@@ -2,10 +2,11 @@
 
 namespace App\Imports;
 
-use App\Models\Analytics\AnalyticType;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
+
+use App\Models\Analytics\AnalyticType;
 
 class SecondSheetImport implements ToModel, WithStartRow, WithCalculatedFormulas
 {
@@ -24,7 +25,6 @@ class SecondSheetImport implements ToModel, WithStartRow, WithCalculatedFormulas
     */
     public function model(array $row)
     {
-        //TODO: Use manual persistence here to get around fk constraint
         return new AnalyticType([
             'name' => $row[1],
             'units' => $row[2],

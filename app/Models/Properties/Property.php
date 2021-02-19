@@ -20,8 +20,10 @@ class Property extends Model
         return $this->belongsToMany(
             'App\Models\Analytics\AnalyticType',
             'property_analytics',
-            'analytic_type_id',
-            'property_id'
-        );
+            'property_id',
+            'analytic_type_id'
+        )
+        ->withPivot('value')
+        ->withTimestamps();
     }
 }
