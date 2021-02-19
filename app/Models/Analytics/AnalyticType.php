@@ -14,4 +14,14 @@ class AnalyticType extends Model
     protected $fillable = [
         'name', 'units', 'is_numeric', 'num_decimal_places'
     ];
+
+    public function properties()
+    {
+        return $this->belongsToMany(
+            'App\Models\Properties\Property',
+            'property_analytics',
+            'analytic_type_id',
+            'property_id'
+        );
+    }
 }

@@ -14,4 +14,14 @@ class Property extends Model
     protected $fillable = [
         'guid', 'suburb', 'state', 'country'
     ];
+
+    public function analyticTypes()
+    {
+        return $this->belongsToMany(
+            'App\Models\Analytics\AnalyticType',
+            'property_analytics',
+            'analytic_type_id',
+            'property_id'
+        );
+    }
 }
