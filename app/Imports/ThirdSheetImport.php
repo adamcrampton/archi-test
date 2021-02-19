@@ -28,7 +28,7 @@ class ThirdSheetImport implements WithStartRow, OnEachRow
         $property = Property::find($row[0]);
 
         try {
-            $property->analyticTypes()->attach(
+            $property->analytics()->attach(
                 $row[1], [
                     'value' => $row[2]
                 ]

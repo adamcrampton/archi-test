@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Api\Properties;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 
+use App\Http\Requests\Properties\PropertyCreate;
+use App\Http\Requests\Properties\PropertyUpdate;
 use App\Models\Properties\Property;
 
 class PropertyController extends Controller
@@ -36,7 +37,7 @@ class PropertyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PropertyCreate $request)
     {
         try {
             $property = $this->property->create([
@@ -77,7 +78,7 @@ class PropertyController extends Controller
      * @param  Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Property $property)
+    public function update(PropertyUpdate $request, Property $property)
     {
         try {
             $property->update([

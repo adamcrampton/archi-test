@@ -15,7 +15,7 @@ class Property extends Model
         'guid', 'suburb', 'state', 'country'
     ];
 
-    public function analyticTypes()
+    public function analytics()
     {
         return $this->belongsToMany(
             'App\Models\Analytics\AnalyticType',

@@ -13,7 +13,7 @@ class PropertyUpdate extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class PropertyUpdate extends FormRequest
     public function rules()
     {
         return [
-            //
+            'suburb' => 'required|max:191',
+            'state' => 'required|max:191',
+            'country' => 'required|max:191'
         ];
     }
 }
