@@ -9,15 +9,8 @@ use Illuminate\Support\Facades\Log;
 
 use App\Models\Properties\Property;
 
-class AnalyticController extends Controller
+class PropertyAnalyticController extends Controller
 {
-    private $property;
-
-    public function __construct(Property $property)
-    {
-        $this->property = $property;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -63,28 +56,8 @@ class AnalyticController extends Controller
      * @param  Request $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(Request $request, Property $property)
     {
-        if (!is_null($request->type)):
-            if (!in_array($request->type, [
-                'suburb', 'state', 'country'
-            ])):
-                return response()->json(
-                    'type value must be suburb, state, or country'
-                , 400);
-            elseif (is_null($request->filter)):
-                return response()->json(
-                    'filter value must be present and not null when specifying type'
-                );
-            endif;
-
-            $property = $this->property->where([
-                $request->type => $request->filter
-            ])
-            ->with(['analytics'])
-            ->get();
-        endif;
-
         return response()->json(
             $property->analytics
         , 200);
