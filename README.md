@@ -1,5 +1,8 @@
 # Archi Test
-API test.
+API demonstration.
+
+## Test Data
+Place the ``back_end_test_data.xlsx`` file in the ``storage\app\xlsx`` directory. This will allow the file to be ingested to the database during seeding.
 
 ## Getting Started
 Follow these steps to get the API up and running:
@@ -7,7 +10,9 @@ Follow these steps to get the API up and running:
 2. Create a database and configure the connection in the project ``.env`` file
 3. Run ``php artisan migrate``
 4. Run ``php artisan db:seed`` 
+5. Run ``php artisan storage:link``
 5. Run ``php artisan route:cache``
+
 
 ## Usage
 Endpoints are as follows:
