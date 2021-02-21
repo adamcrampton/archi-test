@@ -25,9 +25,8 @@ Endpoints are as follows:
 | Endpoint                      | Method | Parameters   | Description
 | ----------------------------- | ------ | ------------ | --------------------------
 | property/{property}/analytics | GET    | none         | Get analytics for property
-| property/analytics            | POST   | type, value  | Add new analytic for property
-| property/analytics            | PUT    | type, value  | Update analytic for property
-
+| property/{property}/analytics | POST   | type, value  | Add new analytic for property
+| property/{property}/analytics | PUT    | type, value  | Update analytic for property
 
 ### Analytics
 | Endpoint            | Method | Parameters             | Description
@@ -35,7 +34,7 @@ Endpoints are as follows:
 | analytics           | POST   | filter, search         | Get all analytics with optional filter
 
 ## Tests
-
+Run ``php artisan test`` to test endpoint HTTP responses.
 
 ## Authors
 * **Adam Crampton** - [Adam Crampton](https://github.com/adamcrampton)
