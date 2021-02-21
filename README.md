@@ -25,7 +25,7 @@ Endpoints are as follows:
 | Endpoint                      | Method | Parameters   | Description
 | ----------------------------- | ------ | ------------ | --------------------------
 | property/{property}/analytics | GET    | none         | Get analytics for property
-| property/analytics            | POST   | type, value  | Add new analytic for property
+| property/{property}/analytics | POST   | type, value  | Add new analytic for property
 
 ### Analytics
 | Endpoint            | Method | Parameters             | Description
