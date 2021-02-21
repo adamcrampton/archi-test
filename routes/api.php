@@ -12,9 +12,8 @@ Route::group(['prefix' => 'properties', 'as' => 'property.'], function() {
 
     // Property analytics.
     Route::get('/{property}/analytics', 'App\Http\Controllers\Api\Properties\PropertyAnalyticController@show')->name('analytics.show');
-
-    // Analytics.
-    Route::post('/analytics', 'App\Http\Controllers\Api\Properties\PropertyAnalyticController@store')->name('analytics.store');
+    Route::post('/{property}/analytics', 'App\Http\Controllers\Api\Properties\PropertyAnalyticController@store')->name('analytics.store');
+    Route::put('/{property}/analytics', 'App\Http\Controllers\Api\Properties\PropertyAnalyticController@update')->name('analytics.update');
 });
 
 Route::group(['prefix' => 'analytics', 'as' => 'analytics.'], function() {

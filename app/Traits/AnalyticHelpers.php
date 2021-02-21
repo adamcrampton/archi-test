@@ -2,6 +2,8 @@
 
 namespace App\Traits;
 
+use Illuminate\Support\Str;
+
 use App\Models\Properties\Property;
 
 trait AnalyticHelpers
@@ -15,9 +17,11 @@ trait AnalyticHelpers
     public function validateRequest($request)
     {
         if (!is_null($request->filter)):
-            if (!in_array($request->filter, [
-                'suburb', 'state', 'country'
-            ])):
+            if (!in_array(
+                    Str::lower($request->filter), [
+                    'suburb', 'state', 'country'
+                ])
+            ):
                return [
                     'result' => 'failed',
                     'message' => 'Error: filter parameter must be suburb, state or country'
